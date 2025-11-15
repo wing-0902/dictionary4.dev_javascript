@@ -1,22 +1,34 @@
 <script lang='ts'>
   let searchType: string = 'title';
-  let searchKeyword: string = '';
 </script>
 
 <div class='root'>
-  <div class='searchSlotRow'>
-    <input type='text' bind:value={searchKeyword} />
+  <div class='searchConfigRow'>
+    <button>
+      見出し
+    </button>
+    <button>
+      用例・全文
+    </button>
   </div>
 </div>
 
 <style lang='scss'>
   .root {
     padding: 4px;
-    .searchSlotRow {
+    .searchConfigRow {
       display: flex;
-      input {
-        width: 100%;
-        height: 40px;
+      height: 30px;
+      button {
+        width: 50%;
+        height: 100%;
+        border: 1px solid var(--themeColor);
+        &:nth-child(1) {
+          border-radius: 15px 0 0 15px;
+        }
+        &:nth-child(2) {
+          border-radius: 0 15px 15px 0;
+        }
       }
     }
   }
