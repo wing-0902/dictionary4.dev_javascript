@@ -1,10 +1,13 @@
 {
-  "name": "",
+  "name": "dictionary4.dev_typescript",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "pagefind:full": "pagefind --site dist/content --output-path dist/content_search",
+    "pagefind:h1_only": "pagefind --site dist/content --output-path dist/h1_search --include-selectors h1",
+    "postbuild": "npm run pagefind:full && npm run pagefind:h1_only",
     "preview": "astro preview",
     "astro": "astro"
   },
