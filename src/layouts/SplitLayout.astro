@@ -15,15 +15,45 @@ import '../styles/globals.scss';
   </head>
   <body>
     <header>
-      <div></div>
+      <div>
+      </div>
     </header>
-    <div>
-      <section>
+    <div class='contentSlot'>
+      <section class="searchSlot">
     
       </section>
-      <section>
+      <section class="content">
         <slot />
       </section>
     </div>
   </body>
 </html>
+
+<style lang="scss">
+  body {
+    padding: 0;
+    margin: 0;
+    --headerHeight: 30px;
+    --searchWidth: 400px;
+    header {
+      margin: 0;
+      height: var(--headerHeight);
+      width: 100vw;
+      border-bottom: 1px solid var(--borderColor);
+    }
+    .contentSlot {
+      display: flex;
+      height: calc(100dvh - var(--headerHeight));
+      .searchSlot {
+        border-right: 0.5px solid var(--borderColor);
+        width: var(--searchWidth);
+        height: 100%;
+      }
+      .content {
+        border-left: 0.5px solid var(--borderColor);
+        width: calc(100vw - var(--searchWidth));
+        height: 100%;
+      }
+    }
+  }
+</style>
