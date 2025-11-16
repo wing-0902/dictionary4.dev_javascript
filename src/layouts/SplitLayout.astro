@@ -4,6 +4,28 @@ import { ClientRouter } from "astro:transitions";
 import '../styles/globals.scss';
 
 import SearchConfig from '../components/SearchUI/SearchConfig.svelte';
+
+const defaultTitle: string = 'TypeScript - Dictionary for Developers'
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = defaultTitle,
+  description = 'JavaScript・TypeScriptで使う構文やキーワードを，辞書形式でまとめたアプリです．',
+  noindex = false
+} = Astro.props
+
+let metaTitle: string = '';
+
+if (title === defaultTitle) {
+  metaTitle = title
+} else {
+  metaTitle = `${title} | ${defaultTitle}`
+}
 ---
 
 <html lang="ja">
@@ -12,6 +34,10 @@ import SearchConfig from '../components/SearchUI/SearchConfig.svelte';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- タイトルとSEO -->
+    <title>{metaTitle}</title>
+    <meta name="description" content={description} />
 
     <ClientRouter />
   </head>
