@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import SplitLayout from "../../layouts/SplitLayout.astro";
+import { Font } from "astro:assets";
 
 export async function getStaticPaths() {
   const bookEntries = await getCollection('dictionary');
@@ -14,6 +15,9 @@ const { entry } = Astro.props;
 const { Content } = await render( entry );
 
 ---
+
+<Font cssVariable='--font-fira-code' preload />
+<Font cssVariable="--font-m-plus-1-code" preload />
 
 <SplitLayout
   title={entry.data.title}
@@ -29,5 +33,8 @@ const { Content } = await render( entry );
 <style lang="scss">
   img {
     max-width: 100%;
+  }
+  h1 {
+    font-family: var(--font-fira-code), var(--font-m-plus-1-code), monospace;
   }
 </style>
