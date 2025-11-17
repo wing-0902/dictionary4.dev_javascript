@@ -19,6 +19,7 @@
     "@pagefind/default-ui": "^1.4.0",
     "astro": "^5.15.6",
     "pagefind": "^1.4.0",
+    "rehype-pretty-code": "^0.14.1",
     "sass": "^1.94.0",
     "svelte": "^5.43.6",
     "typescript": "^5.9.3",

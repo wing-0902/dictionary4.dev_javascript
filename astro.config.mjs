@@ -1,12 +1,10 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
+import rehypePrettyCode from 'rehype-pretty-code';
 
 import svelte from '@astrojs/svelte';
-
 import vue from '@astrojs/vue';
-
 import mdx from '@astrojs/mdx';
-
 import sitemap from '@astrojs/sitemap';
 
 const siteUrl = import.meta.env.PUBLIC_SITE_DOMAIN;
@@ -33,5 +31,16 @@ export default defineConfig({
         cssVariable: '--font-zen-kaku-gothic-new'
       },
     ]
-  }
+  },
+  markdown: {
+    syntaxHighlight: false,
+    rehypePlugins: [
+      [
+        rehypePrettyCode,
+        {
+
+        }
+      ]
+    ],
+  },
 });
