@@ -6,6 +6,7 @@
   }
 
   import PagefindConnector from "./PagefindConnector.svelte";
+  import TitlePagefind from "./TitlePagefind.svelte";
 </script>
 
 <div class='root'>
@@ -24,7 +25,11 @@
     </button>
   </div>
   <div class='pagefindSlot'>
-    <PagefindConnector />
+    {#if (isTitle === true)}
+      <TitlePagefind />
+    {:else}
+      <PagefindConnector />
+    {/if}
   </div>
 </div>
 
