@@ -13,11 +13,10 @@ const userName = '太郎';
 // 変数「userName」を「太郎」にする
 ```
 
-```js
+```ts
 // TypeScript
 const userName: string = '太郎';
 // 変数「userName（文字列型）」を「太郎」にする
-// この場合，
 ```
 
 - `const`で宣言された変数は，宣言時に代入（値を確定させること）が必要です．
