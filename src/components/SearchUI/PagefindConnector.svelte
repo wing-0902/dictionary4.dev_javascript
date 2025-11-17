@@ -1,10 +1,10 @@
-<script lang='ts'>
+<script>
   import { onMount } from "svelte";
   import { PagefindUI } from "@pagefind/default-ui";
   import "@pagefind/default-ui/css/ui.css";
 
-  const siteDomain: string = import.meta.env.PUBLIC_SITE_DOMAIN;
-  const pagefindBundlePath: string = `${siteDomain}/content_search/`;
+  const siteDomain = import.meta.env.PUBLIC_SITE_DOMAIN;
+  const pagefindBundlePath = `${siteDomain}/content_search/`;
 
   onMount(() => {
     new PagefindUI({
