@@ -138,17 +138,27 @@
     <input 
       type="search" 
       placeholder="サイト内検索..." 
-      value={query} 
+      bind:value={query}
       on:input={handleInput}
       aria-label="サイト内検索"
     />
+    {#if (query !== '')}
+      <button
+        aria-label="検索クエリを削除"
+        on:click={() => query = ''}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+        </svg>
+      </button>
+    {/if}
   </div>
 
   <div class="search-output">
     {#if loading}
       <p>検索中...</p>
     {:else if query && searchResults.length > 0}
-      <h3>{searchResults.length}件の結果を表示</h3>
+      <p>{searchResults.length}件の結果を表示</p>
       <ul class="results-list">
         {#each searchResults as result}
           <li class="result-item">
@@ -185,11 +195,22 @@
   .root {
     width: 100%;
     .pgSearch {
+      position: relative;
       input {
         width: 100%;
         font-family: var(--font-fira-code), var(--font-m-plus-1-code), monospace;
         height: 40px;
         font-size: 16px;
+        display: flex;
+        align-items: center;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        height: 40px;
+        background: transparent;
       }
     }
   }
