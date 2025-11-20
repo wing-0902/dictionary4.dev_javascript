@@ -26,8 +26,13 @@
   </div>
   {#if (isTitle === true)}
     <TitlePagefind />
-  {:else}
+  {:else if (isTitle === false)}
     <PagefindConnector />
+  {:else}
+    <div>
+      <h2>エラーが発生しました．</h2>
+      <p>検索モードのボタンをクリックしても解決しない場合，ページを再読み込みしてください．</p>
+    </div>
   {/if}
 </div>
 

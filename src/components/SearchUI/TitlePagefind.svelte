@@ -7,7 +7,7 @@
     new PagefindUI({
       element: "#search",
       language: 'ja',
-      showSubResults: true,
+      showSubResults: false,
       showImages: false,
       bundlePath: 'https://js.dictionary4.dev/h1_only_search/',
       baseUrl: "/content/",
