@@ -139,7 +139,7 @@
   });
 </script>
 
-<section class="custom-search-root">
+<section class="root">
   <div class="pgSearch">
     <input 
       type="search" 
@@ -148,6 +148,16 @@
       on:input={handleInput}
       aria-label="サイト内検索"
     />
+    {#if (query !== '')}
+      <button
+        aria-label="検索クエリを削除"
+        on:click={() => query = ''}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+        </svg>
+      </button>
+    {/if}
   </div>
 
   <div class="search-output">
