@@ -7,7 +7,7 @@
     "build": "astro build",
     "pagefind:full": "pagefind --site dist/content --output-path dist/content_search",
     "pagefind:title_only": "pagefind --site dist/content --root-selector 'h1' --output-path dist/title_only_search",
-    "pagefind:code_only": "pagefind --site dist/content --root-selector 'code' --output-path dist/code_only_search",
+    "pagefind:code_only": "pagefind --site dist/content --root-selector 'h1, code' --output-path dist/code_only_search",
     "postbuild": "pnpm pagefind:full && pnpm pagefind:title_only && pnpm pagefind:code_only",
     "preview": "astro preview",
     "astro": "astro"
