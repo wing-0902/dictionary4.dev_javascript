@@ -163,12 +163,10 @@
           <li class="項目">
             <a
               class='項目リンク'
-              href={/*addQuery(result.url, {
+              href={addQuery(result.url, {
                 'q': query,
                 'm': '見出し',
-              })*/
-                result.url
-              }
+              })}
             >
               <h2>{result.meta.title || result.url}</h2>
             </a>
@@ -178,7 +176,12 @@
               {#each result.sub_results as subResult, index}
                 {#if index > 0} 
                   <li class="中身">
-                    <a href="{subResult.url}">
+                    <a href={
+                      addQuery(subResult.url, {
+                        'q': query,
+                        'm': '見出し',
+                      })
+                    }>
                       <h3 class="タイトル">{subResult.title}</h3>
                     </a>
                   </li>
