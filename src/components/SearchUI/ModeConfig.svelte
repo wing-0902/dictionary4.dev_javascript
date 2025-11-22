@@ -28,16 +28,19 @@
 <div class='root'>
   <button
     on:click={() => changeMode('見出し')}
+    disabled={searchMode === '見出し'}
   >
     見出し
   </button>
   <button
     on:click={() => changeMode('用例')}
+    disabled={searchMode === '用例'}
   >
     用例
   </button>
   <button
     on:click={() => changeMode('全文')}
+    disabled={searchMode === '全文'}
   >
     全文
   </button>
@@ -55,12 +58,18 @@
       font-size: 14px;
       margin: 0;
       height: 28px;
-      border: 1px solid var(--foreground);
+      border: solid var(--foreground);
+      border-width: 1px 0.5px;
       &:first-child {
-        border-radius: 14px 0 0 14px;
+        border-radius: 0 0 0 7px;
+        border-left-width: 1px !important;
       }
       &:last-child {
-        border-radius: 0 14px 14px 0;
+        border-radius: 0 0 7px 0;
+        border-right-width: 1px !important;
+      }
+      &:disabled {
+        color: var(--themeColor);
       }
     }
   }

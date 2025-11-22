@@ -1,4 +1,5 @@
 <script lang="ts">
+  import './searchUi.scss';
   import { onMount, onDestroy } from 'svelte';
   
   /** 検索クエリを保持する変数 */
@@ -17,8 +18,6 @@
     bundlePath: 'https://js.dictionary4.dev/content_search/',
     baseUrl: "/content/",
     pageSize: 8,
-    // highlightParamは検索結果のハイライト処理にカスタムで使用します
-    highlightParam: "q", 
   };
 
   /**
@@ -188,81 +187,3 @@
     {/if}
   </div>
 </section>
-
-<style lang="scss">
-  .root {
-    width: 100%;
-    .pgSearch {
-      position: relative;
-      input {
-        width: 100%;
-        font-family: var(--font-fira-code), var(--font-m-plus-1-code), monospace;
-        height: 40px;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-      }
-      button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        border: none;
-        height: 40px;
-        background: transparent;
-      }
-    }
-    .search-output {
-      .ステータス {
-        text-align: center;
-      }
-      .結果一覧 {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        hr {
-          margin-left: 30px;
-        }
-        .endHr {
-          margin-top: 34px;
-        }
-        .項目 {
-          margin: 0 17px;
-          .項目リンク {
-            text-decoration: none;
-            h2, p {
-              font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
-            }
-            h2 {
-              text-decoration: underline;
-              margin-top: 15px;
-              line-height: 1;
-            }
-            .詳細 {
-              margin-top: -10px;
-              color: var(--foreground);
-            }
-          }
-          margin-bottom: -16px;
-        }
-        .サブ結果 {
-          .中身 {
-            a {
-              text-decoration: none;
-              .タイトル {
-                margin: 0;
-                line-height: 0.8;
-                margin-top: -6px;
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-            }
-            &:last-child {
-              margin-bottom: -24px;
-            }
-          }
-        }
-      }
-    }
-  }
-</style>
