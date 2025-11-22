@@ -193,6 +193,7 @@
           {/if}
         {/each}
         <hr class='endHr'/>
+        <div class='spacer'></div>
       </ul>
     {:else if query && !loading}
       <p class="ステータス">結果が見つかりませんでした。</p>
