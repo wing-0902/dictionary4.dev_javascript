@@ -1,10 +1,21 @@
 ---
+interface Props {
+  title?: string;
+}
 
+const {
+  title = '',
+} = Astro.props;
 ---
 
 <div class="root">
   <div class="return">
-    <a href="/">＜戻る</a>
+    <p>
+      <a href="/">＜<span class="戻る">戻る</span></a>
+    </p>
+  </div>
+  <div class="title">
+    <p>{title}</p>
   </div>
   <div>
 
@@ -19,14 +30,30 @@
     display: flex;
     justify-content: space-between;
     .return {
-      a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      p {
         display: none;
+        a {
+          text-decoration: none;
+          .戻る {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
       }
       @media (max-width: 830px) {
-        a {
+        p {
           display: inline;
         }
       }
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
   }
 </style>

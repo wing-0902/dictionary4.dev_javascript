@@ -12,6 +12,7 @@ const defaultTitle: string = 'JavaScript - Dictionary for Developers'
 
 interface Props {
   title?: string;
+  topbarTitle?: string;
   description?: string;
   noindex?: boolean;
   showContent?: boolean;
@@ -19,6 +20,7 @@ interface Props {
 
 const {
   title = defaultTitle,
+  topbarTitle = title,
   description = 'JavaScript・TypeScriptで使う構文やキーワードを，辞書形式でまとめたアプリです．',
   noindex = false,
   showContent = true,
@@ -75,7 +77,9 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
         `}
       >
         <div class="topbar">
-          <Topbar />
+          <Topbar
+            title={topbarTitle}
+          />
         </div>
         <div class="余白"></div>
         <div class="slot">
