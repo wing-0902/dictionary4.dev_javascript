@@ -1,11 +1,12 @@
 :root {
   --foreground: white;
+  --background: #16171d;
   --borderColor: rgb(97, 97, 97);
   --themeColor: #3178C6;
   --codeBack: #282A36;
 
   font-family: var(--font-zen-kaku-gothic-new);
-  background-color: #16171d;
+  background-color: var(--background);
   color: var(--foreground);
 }
 

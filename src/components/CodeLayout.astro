@@ -11,7 +11,6 @@ const { title = '' } = Astro.props;
     <div class="tab">
       <p>{title}</p>
     </div>
-    <div class="右"></div>
   </div>
   <div class="children">
     <slot />
@@ -20,18 +19,33 @@ const { title = '' } = Astro.props;
 
 <style lang="scss">
   .root {
+    background-color: var(--codeBack);
+    border-radius: 4px;
+    border: 0.5px solid var(--borderColor);
     .header {
+      display: flex;
+      margin-bottom: -13px;
+      background-color: var(--background);
+      border-radius: 3.5px;
+      border-bottom: 1px solid var(--themeColor);
       .tab {
+        background-color: var(--codeBack);
+        margin: auto 5px 0 0;
+        padding: 7px;
+        min-width: 160px;
+        max-width: calc(100% - 20px);
+        align-items: center;
+        border-radius: 10px 10px 0 0;
+
         p {
+          margin: 0;
           font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
         }
       }
-      .右 {
-
-      }
     }
     .children {
-
+      margin: 0 0 -7px;
+      padding: 0;
     }
   }
 </style>
