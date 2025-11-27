@@ -84,6 +84,8 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
         <div class="topbar">
           <Topbar
             title={topbarTitle}
+            href={header}
+            notShow={fullScreen}
           />
         </div>
         <div class="余白"></div>

@@ -7,6 +7,13 @@
   let query: string = '';
   let mode: string = '';
 
+  export let href: string;
+  export let show: boolean;
+
+  const linkHref =
+    href === '検索' ? "/" :
+    "/";
+  
   onMount(async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const initialQuery = urlParams.get('q') ?? '';
@@ -16,19 +23,21 @@
   })
 </script>
 
-<div class='root'>
-  <p>
-    <a
-      href={addQuery("/", {
-        'q': query,
-        'm': mode,
-      })}
-    >
-      <ArrowBack />
-      <span>戻る</span>
-    </a>
-  </p>
-</div>
+{#if show}
+  <div class='root'>
+    <p>
+      <a
+        href={addQuery(linkHref, {
+          'q': query,
+          'm': mode,
+        })}
+      >
+        <ArrowBack />
+        <span>戻る</span>
+      </a>
+    </p>
+  </div>
+{/if}
 
 <style lang="scss">
   .root {

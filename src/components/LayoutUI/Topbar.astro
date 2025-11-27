@@ -1,10 +1,14 @@
 ---
 interface Props {
   title?: string;
+  href?: string;
+  notShow?: boolean;
 }
 
 const {
   title = '',
+  href = '検索',
+  notShow = false,
 } = Astro.props;
 
 import ReturnLink from './Return.svelte';
@@ -13,7 +17,7 @@ import ReturnLink from './Return.svelte';
 <div class="root">
   <div class="return">
     <div class="returnLink">
-      <ReturnLink client:only="svelte" />
+      <ReturnLink href={href} show={!notShow} client:only="svelte" />
     </div>
   </div>
   <div class="title">
