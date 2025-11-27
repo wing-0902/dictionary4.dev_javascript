@@ -17,6 +17,8 @@ interface Props {
   description?: string;
   noindex?: boolean;
   showContent?: boolean;
+  fullScreen?: boolean;
+  header?: string;
 }
 
 const {
@@ -25,6 +27,8 @@ const {
   description = 'JavaScript・TypeScriptで使う構文やキーワードを，辞書形式でまとめたアプリです．',
   noindex = false,
   showContent = true,
+  fullScreen = false,
+  header = '検索',
 } = Astro.props
 
 let metaTitle: string = '';
@@ -58,13 +62,14 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
   </head>
   <body>
     <header>
-      <HeaderContent />
+      <HeaderContent header={header} />
     </header>
     <div class='contentSlot'>
       <section
         class={`
           searchSlot
           ${showContent === true ? 'hideSearchSlot' : 'showSearchSlot'}
+          ${fullScreen === true ? 'strictlyHidden' : ''}
         `} 
       >
         <Sidebar data-astro-transition-persist />
@@ -73,6 +78,7 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
         class={`
           content
           ${showContent === true ? 'showContent' : 'hideContent'}
+          ${fullScreen === true ? 'showFull' : ''}
         `}
       >
         <div class="topbar">
@@ -112,12 +118,18 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
         border-right: 0.5px solid var(--borderColor);
         width: var(--searchWidth);
         height: 100%;
+        &.strictlyHidden {
+          display: none;
+        }
       }
       .content {
         border-left: 0.5px solid var(--borderColor);
         width: calc(100vw - var(--searchWidth));
         height: 100%;
         position: relative;
+        &.showFull {
+          width: 100vw;
+        }
         .topbar {
           position: absolute;
           top: 0;

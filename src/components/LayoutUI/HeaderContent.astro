@@ -1,16 +1,34 @@
 ---
 import Search from "../Icons/Search.svg.astro";
 import List from "../Icons/List.svg.astro";
+
+interface Props {
+  header?: string;
+}
+
+const {
+  header = '検索'
+} = Astro.props;
 ---
 
 <div class="root">
   <div class="dummy"></div>
   <div class="nav">
-    <a>
+    <a
+      href="/content/"
+      class={`
+        ${header === '一覧' ? '色付き' : ''}
+      `}
+    >
       <List />
       <span>一覧</span>
     </a>
-    <a href="/">
+    <a
+      href="/"
+      class={`
+        ${header === '検索' ? '色付き' : ''}
+      `}
+    >
       <Search />
       <span>検索</span>
     </a>
@@ -37,6 +55,9 @@ import List from "../Icons/List.svg.astro";
         flex-direction: row;
         align-items: center;
         color: var(--foreground);
+        &.色付き {
+          color: var(--themeColor);
+        }
         text-decoration: none;
         span {
           @media (max-width: 830px) {
