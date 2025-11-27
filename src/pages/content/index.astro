@@ -1,5 +1,11 @@
 ---
 import SplitLayout from "../../layouts/SplitLayout.astro";
+
+import { getCollection } from "astro:content";
+
+const dictEntries = await getCollection('dictionary', ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 ---
 
 <SplitLayout
@@ -7,5 +13,39 @@ import SplitLayout from "../../layouts/SplitLayout.astro";
   fullScreen={true}
   header="一覧"
 >
+  <div class="parent">
+    <div class="children">
+      {dictEntries.map(dictEntry => (
+        <a href=`/dictinary/${dictEntry.slug}/` >
+          <div>
+            <p>{dictEntry.data.title}</p>
+          </div>
+        </a>
 
+        
+      ))}
+    </div>
+  </div>
 </SplitLayout>
+
+<style lang="scss">
+  .parent {
+    margin: 10px;
+    max-width: 100%;
+    .children {
+      a {
+        border: 0.2px solid var(--foreground);
+        div {
+          width: 80px;
+          height: 80px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          p {
+
+          }
+        }
+      }
+    }
+  }
+</style>

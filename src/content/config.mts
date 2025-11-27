@@ -9,6 +9,7 @@ const dictionaryCollection = defineCollection({
     品詞: z.string(),
     jsInclude: z.boolean(),
     tsInclude: z.boolean(),
+    draft: z.boolean().default(false),
   }),
 });
 
