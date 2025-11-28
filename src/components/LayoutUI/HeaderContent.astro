@@ -2,6 +2,8 @@
 import Search from "../Icons/Search.svg.astro";
 import List from "../Icons/List.svg.astro";
 
+import QueryLink from '../QueryLink.svelte';
+
 interface Props {
   header?: string;
 }
@@ -14,24 +16,16 @@ const {
 <div class="root">
   <div class="dummy"></div>
   <div class="nav">
-    <a
-      href="/content/"
-      class={`
-        ${header === '一覧' ? '色付き' : ''}
-      `}
-    >
-      <List />
-      <span>一覧</span>
-    </a>
-    <a
+    <QueryLink
       href="/"
       class={`
         ${header === '検索' ? '色付き' : ''}
       `}
+      client:only
     >
       <Search />
       <span>検索</span>
-    </a>
+    </QueryLink>
   </div>
   <div class="clickHere">
 
