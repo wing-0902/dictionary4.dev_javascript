@@ -105,7 +105,7 @@
       <label for='comment'>編集部へのメッセージ，ご意見など，ご自由にお書きください．</label><br />
       <textarea placeholder='ここにコメントを入力' id='comment' name='comment' bind:value={comment}></textarea>
     </fieldset>
-    <Turnstile siteKey='0x4AAAAAABpyNGg6V96WphRE' />
+    <Turnstile siteKey='0x4AAAAAACDaRh_Fzk8DXhP1' />
     <div class='submitBtnBox'>
       <button type='submit'>
         送信
