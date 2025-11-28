@@ -46,6 +46,22 @@ export default defineConfig({
     ],
   },
 
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+      configPath: 'wrangler.jsonc',
+    },
+    routes: {
+      extend: {
+        exclude: [
+          {pattern: '/content/*'},
+          {pattern: '/_astro/*'},
+          {pattern: '/code_only_search/*'},
+          {pattern: '/content_search/*'},
+          {pattern: '/title_only_search/*'},
+        ]
+      }
+    }
+  }),
   output: 'static',
 });
