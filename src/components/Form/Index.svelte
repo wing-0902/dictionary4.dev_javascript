@@ -41,7 +41,7 @@
       return;
     }
 
-    formData.append('host', 'wave.graphics');
+    formData.append('host', 'js.dictionary4.dev');
 
     try {
       // fetch APIを使ってサーバーにPOSTリクエストを送信
@@ -115,5 +115,5 @@
 </div>
 
 <style lang="scss">
-  
+
 </style>

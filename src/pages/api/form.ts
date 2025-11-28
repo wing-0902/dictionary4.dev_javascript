@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Workerの環境変数（KVのバインディング、シークレットキー）を型定義
 export interface Env {
-  SURVEY_ANSWERS: KVNamespace;
+  SURVEY_ANSWERS: any;
   TURNSTILE_SECRET_KEY: string; // シークレットキーを環境変数に追加
 }
 
