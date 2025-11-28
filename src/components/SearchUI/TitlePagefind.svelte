@@ -3,6 +3,8 @@
   import './searchUi.scss';
   import { addQuery } from './addQuery.mts';
   
+  export let allLists;
+
   /** 検索クエリを保持する変数 */
   let query = '';
   /** 検索結果を保持する配列 */
@@ -155,7 +157,7 @@
     {#if loading}
       <p class='ステータス'>検索中...</p>
     {:else if query && searchResults.length > 0}
-      <p class='ステータス'>{searchResults.length}件の結果を表示</p>
+      <p class='ステータス'>{searchResults.length}件の結果を表示中</p>
       <ul class="結果一覧">
         {#each searchResults as result}
           <hr />
@@ -193,6 +195,33 @@
       </ul>
     {:else if query && !loading}
       <p class="ステータス">結果が見つかりませんでした。</p>
+    {:else}
+      <p class='ステータス'>入力して検索</p>
+      <ul class='結果一覧'>
+        {#each allLists as result}
+          <hr />
+          <li class='項目'>
+            <a
+              class='項目リンク'
+              href={addQuery(`/content/${result.slug}`, {
+                'q': query,
+                'm': '見出し',
+              })}
+            >
+              <h2>{result.data.title}</h2>
+            </a>
+          </li>
+          <div class='spacer'></div>
+        {/each}
+        <hr class='entHr' />
+      </ul>
     {/if}
   </div>
 </section>
+
+<style lang="scss">
+  .spacer {
+    height: 0;
+    margin: 0;
+  }
+</style>

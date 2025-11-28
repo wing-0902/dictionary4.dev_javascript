@@ -11,11 +11,13 @@
     searchMode === '全文' ? PagefindConnector :
     searchMode === '用例' ? CodePagefind :
     TitlePagefind;
+
+  export let allList;
 </script>
 
 <div class='root'>
   {#if (SearchComponent !== null)}
-    <svelte:component this={SearchComponent}>
+    <svelte:component this={SearchComponent} allLists={allList}>
       <div>
         <ModeConfig bind:searchMode={searchMode} />
       </div>

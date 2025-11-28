@@ -1,5 +1,12 @@
 ---
 import SearchIslandEntrance from './SearchUI/IslandEntrance.svelte';
+
+import { getCollection } from 'astro:content';
+
+const dictEntries = await getCollection('dictionary');
 ---
 
-<SearchIslandEntrance client:load />
+<SearchIslandEntrance
+  client:only="svelte"
+  allList={dictEntries}
+/>
