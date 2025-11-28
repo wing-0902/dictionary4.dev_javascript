@@ -19,5 +19,8 @@
       "binding": "KV",
       "id": "fa3beb81d4044eb683f23e4f59c81622"
     }
-  ]
+  ],
+  "vars": {
+    "SURVEY_ANSWERS": "fa3beb81d4044eb683f23e4f59c81622"
+  }
 }
