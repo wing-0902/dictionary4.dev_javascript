@@ -1,24 +1,11 @@
 <script lang='ts'>
   export let href: string;
 
-  import { onMount } from "svelte";
-  import { addQuery } from "./SearchUI/addQuery.mts";
-
-  let query: string = '';
-  let mode: string = '';
-
-  onMount(async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    query = urlParams.get('q') ?? '';
-    mode = urlParams.get('m') ?? '見出し';
-  })
+  import { addAutoQuery } from "./SearchUI/addQuery.mts";
 </script>
 
 <a
-  href={addQuery(href, {
-    'q': query,
-    'm': mode,
-  })}
+  href={addAutoQuery(href)}
 >
   <slot />
 </a>
