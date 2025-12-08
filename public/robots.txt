@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /form/
+Disallow: /license/
+
 Sitemap: https://js.dictionary4.dev/sitemap-index.xml
