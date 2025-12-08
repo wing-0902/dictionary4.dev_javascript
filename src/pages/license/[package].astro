@@ -1,0 +1,26 @@
+---
+import SplitLayout from '../../layouts/SplitLayout.astro';
+import licenseData from '../../data/license-data.json';
+
+const licenseEntries = Object.entries(licenseData);
+
+export async function getStaticPaths () {
+  const licenseEntries = Object.entries(licenseData);
+  return licenseEntries.map(([pkgName, pkgInfo]) => {
+    return {
+      params: { 
+        package: pkgName
+      }, 
+      props: { 
+        packageData: pkgInfo, 
+        packageName: pkgName 
+      }, 
+    };
+  });
+}
+
+const { packageData, packageName } = Astro.props;
+---
+
+<SplitLayout>
+</SplitLayout>
