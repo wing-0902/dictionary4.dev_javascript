@@ -35,6 +35,8 @@
   <div
     @click='changeStatus'
     class='back'
+    role='button'
+    aria-label='メニューを閉じる'
     v-if="!hidden">
   </div>
 </template>
