@@ -63,8 +63,10 @@
             text-decoration: underline;
             margin-top: 15px;
             line-height: 1;
+            font-size: 18px;
           }
           .詳細 {
+            font-size: 15px;
             margin-top: -10px;
             color: var(--foreground);
           }
@@ -72,6 +74,7 @@
         margin-bottom: -16px;
       }
       .サブ結果 {
+        font-size: 15px;
         .中身 {
           a {
             text-decoration: none;
