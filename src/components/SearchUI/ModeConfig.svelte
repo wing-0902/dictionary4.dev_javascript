@@ -60,7 +60,7 @@
       height: 28px;
       border: solid var(--themeColor);
       border-width: 1px 0.5px;
-      background: transparent;
+      background: var(--codeBack);
       &:first-child {
         border-radius: 7px 0 0 7px;
         border-left-width: 1px !important;
@@ -70,7 +70,7 @@
         border-right-width: 1px !important;
       }
       &:disabled {
-        color: var(--background);
+        color: var(--codeBack);
         font-weight: 700;
         background-color: var(--themeColor);
       }
