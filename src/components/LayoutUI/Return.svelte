@@ -1,6 +1,6 @@
 <script lang='ts'>
   import { onMount } from "svelte";
-  import { addQuery } from "../SearchUI/addQuery.mts";
+  import { addAutoQuery } from "../SearchUI/addQuery.mts";
 
   import ArrowBack from "../Icons/ArrowBack.svg.svelte";
 
@@ -27,10 +27,7 @@
   <div class='root'>
     <p>
       <a
-        href={addQuery(linkHref, {
-          'q': query,
-          'm': mode,
-        })}
+        href={addAutoQuery(linkHref)}
       >
         <ArrowBack />
         <span>戻る</span>
