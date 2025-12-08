@@ -1,5 +1,6 @@
 import { defineMarkdocConfig, nodes, component } from '@astrojs/markdoc/config';
 import shiki from '@astrojs/markdoc/shiki';
+import { transformerNotationDiff } from '@shikijs/transformers';
 
 export default defineMarkdocConfig({
   tags: {
@@ -16,6 +17,9 @@ export default defineMarkdocConfig({
       theme: 'dracula',
       wrap: true,
       langs: [],
+      transformers: [
+        transformerNotationDiff(),
+      ]
     }),
   ],
   nodes: {
