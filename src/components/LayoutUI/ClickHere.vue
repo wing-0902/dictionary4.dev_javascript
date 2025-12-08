@@ -22,7 +22,14 @@
   <div
     :class="{ hidden: hidden }"
     class='menuSlot'>
-
+    <div class='rowGr'>
+      <a>このアプリについて</a>
+      <a>コンテンツについて</a>
+      <a href='/license/'>その他のライセンス</a>
+    </div>
+    <div class='rowGr'>
+      <a>URLスキームをコピー</a>
+    </div>
   </div>
 </template>
 
@@ -48,8 +55,21 @@
     z-index: 1000;
     backdrop-filter: brightness(85%) blur(8px);
     transition: all 0.25s ease;
+    border-radius: 20px;
     &.hidden {
       transform: translate3d(155px, -230px, 0) scale(0);
+    }
+    .rowGr {
+      color: var(--foreground);
+      margin: 21px 0;
+      display: flex;
+      flex-direction: column;
+      a, button {
+        color: var(--foreground);
+        font-size: 15px;
+        margin: 7px 15px;
+        text-decoration: none;
+      }
     }
   }
 </style>
