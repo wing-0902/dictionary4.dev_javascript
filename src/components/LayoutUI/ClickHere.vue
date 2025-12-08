@@ -15,6 +15,7 @@
   <div class='root'>
     <button
       @click='changeStatus'
+      aria-label='メニューを開閉'
     >
       <SeeMore />
     </button>
