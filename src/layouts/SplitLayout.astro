@@ -72,12 +72,11 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
           searchSlot
           ${showContent === true ? 'hideSearchSlot' : 'showSearchSlot'}
           ${fullScreen === true ? 'strictlyHidden' : ''}
-        `} 
+        `}
       >
         <Sidebar
           data-astro-transition-persist
-          content={leftComponent}
-          />
+          content={leftComponent}/>
       </section>
       <section
         class={`
