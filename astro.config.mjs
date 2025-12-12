@@ -7,13 +7,22 @@ import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import markdoc from '@astrojs/markdoc';
-
 import cloudflare from '@astrojs/cloudflare';
+import alpinejs from '@astrojs/alpinejs';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://js.dictionary4.dev',
-  integrations: [svelte(), vue(), mdx(), sitemap(), markdoc()],
+  integrations: [
+    svelte(),
+    vue(),
+    mdx(),
+    sitemap(),
+    markdoc(),
+    alpinejs({
+      entrypoint: '/src/entrypoint.mts',
+    })
+  ],
   experimental: {
     fonts: [
       {
