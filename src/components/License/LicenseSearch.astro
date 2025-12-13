@@ -18,8 +18,9 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
   <div
     data-license-entries={licenseEntriesJson}
     class="alpinejs-slot"
+    data-astro-transition-persist
     x-data="{
-      search: $persist(''),
+      search: '',
 
       licenseItems: JSON.parse($el.dataset.licenseEntries), 
 
