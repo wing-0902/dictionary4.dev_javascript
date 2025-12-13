@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
-import rehypePrettyCode from 'rehype-pretty-code';
 
 import svelte from '@astrojs/svelte';
 import vue from '@astrojs/vue';
@@ -45,14 +44,9 @@ export default defineConfig({
 
   markdown: {
     syntaxHighlight: false,
-    rehypePlugins: [
-      [
-        rehypePrettyCode,
-        {
-
-        }
-      ]
-    ],
+    shikiConfig: {
+      theme: 'night-owl',
+    },
   },
 
   adapter: cloudflare({
