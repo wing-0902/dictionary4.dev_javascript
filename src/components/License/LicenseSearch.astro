@@ -40,7 +40,7 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
     <div class="alpineSearch">
       <input x-model='search' placeholder='検索...' />
       <template
-        x-if="search !== ''"
+        x-if="search != ''"
       >
         <button
           aria-label="検索クエリを削除"
@@ -73,21 +73,37 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
       font-size: 18px;
     }
     .alpinejs-slot {
-      input {
-        background: var(--codeBack);
-        color: var(--foreground);
-        margin: 2px 5px;
-        width: 100%;
-        font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
-        height: 40px;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        border-radius: 10px;
-        border: none;
-        &:focus {
-          outline: none;
-          color: var(--themeColor);
+      .alpineSearch{
+        position: relative;
+        input {
+          background: var(--codeBack);
+          color: var(--foreground);
+          margin: 2px 5px;
+          width: 100%;
+          font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
+          height: 40px;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          border-radius: 10px;
+          border: none;
+          &:focus {
+            outline: none;
+            color: var(--themeColor);
+          }
+        }
+
+        button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          border: none;
+          height: 40px;
+          background: transparent;
+          color: var(--foreground);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
       p {
