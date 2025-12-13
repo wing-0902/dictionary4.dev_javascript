@@ -17,7 +17,7 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
 
   <div
     data-license-entries={licenseEntriesJson}
-
+    class="alpinejs-slot"
     x-data="{
       search: '',
 
@@ -34,8 +34,6 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
           ([pkgName]) => pkgName.toLowerCase().includes(lowerSearch) 
         )
       }
-
-
     }"
   >
     <input x-model='search' placeholder='検索...' />
@@ -43,7 +41,7 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
     <ul>
       <template x-for="item in filteredItems" :key="item[0]">
         <li>
-          <a :href="`/license/${item[0].replace(/\//g, '-')}`" >
+          <a x-bind:href="`/license/${item[0].replace(/\//g, '-')}`" >
             <h3 x-text="item[0]"></h3> 
             <span x-text="item[1].licenses + ' License'"></span>
           </a>
@@ -52,3 +50,32 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
     </ul>
   </div>
 </section>
+
+<style lang="scss">
+  section {
+    overflow-x: hidden;
+    h2 {
+      font-size: 18px;
+    }
+    .alpinejs-slot {
+      input {
+        background: var(--codeBack);
+        color: var(--foreground);
+        margin-top: 2px;
+        margin-bottom: 2px;
+        width: 100%;
+        font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
+        height: 40px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        border: none;
+        &:focus {
+          outline: none;
+          color: var(--themeColor);
+        }
+      }
+    }
+  }
+</style>
